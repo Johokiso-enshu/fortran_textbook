@@ -1,5 +1,7 @@
 general:
   branches:
+    only:
+      - CI_support
 
 machine:
   timezone:
@@ -15,13 +17,13 @@ dependencies:
 
 test:
   override:
-    - cd fortran_textbook.git && ./latex_build.sh textbook.tex
+    - cd fortran_textbook && ./latex_build.sh textbook.tex
 
 deployment:
   release:
     branch: master
     commands:
-      - cd fortran_textbook.git
+      - cd fortran_textbook
       - git checkout -b release
       - git add --all :/
       - git commit -m "[ci skip] build pdf"
