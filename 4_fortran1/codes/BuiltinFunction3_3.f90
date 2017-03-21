@@ -1,13 +1,13 @@
 program TrigonometricFunction3
-  implicit none     ! ˆÃ–Ù‚ÌŒ^éŒ¾‚Ì‹Ö~. 
+  implicit none     ! æš—é»™ã®å‹å®£è¨€ã®ç¦æ­¢. 
   double precision:: pi, theta
   
-  pi = acos(-1.d0)     ! ‰~ü—¦. 
+  pi = acos(-1.d0)     ! å††å‘¨ç‡. 
 
-  write(6,*) 'input theta'     ! ‚½‚¾‚Ì•¶š—ñ. ‚È‚­‚Ä‚à‚æ‚¢‚ª, ‚ ‚é‚ÆeØ. 
-  read(5,*) theta     ! ‚±‚±‚Å•Ï” theta ‚ğ‰æ–Ê‚©‚ç“ü—Í‚·‚é. 
+  write(6,*) 'input theta'     ! ãŸã ã®æ–‡å­—åˆ—. ãªãã¦ã‚‚ã‚ˆã„ãŒ, ã‚ã‚‹ã¨è¦ªåˆ‡. 
+  read(5,*) theta     ! ã“ã“ã§å¤‰æ•° theta ã‚’ç”»é¢ã‹ã‚‰å…¥åŠ›ã™ã‚‹. 
   
-  theta = (theta /180.d0)*pi     ! deg‚©‚çrad‚Ö‚Ì•ÏŠ·. 
+  theta = (theta /180.d0)*pi     ! degã‹ã‚‰radã¸ã®å¤‰æ›. 
 
   write(6,*) 'sin(x) = ', sin(theta)
   write(6,*) 'cos(x) = ', cos(theta)

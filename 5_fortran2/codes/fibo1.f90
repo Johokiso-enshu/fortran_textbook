@@ -1,16 +1,16 @@
 program FibonacciOriginal
   implicit none
-  double precision:: a0, a1, a2, a3, a4, a5 ! a0`a5‚ğÀ”Œ^‚Æ‚µ‚Ä’è‹`. 
+  double precision:: a0, a1, a2, a3, a4, a5 ! a0ã€œa5ã‚’å®Ÿæ•°å‹ã¨ã—ã¦å®šç¾©. 
   double precision:: phi2, phi3, phi4, phi5
 
-! ‰Šú’l. 
+! åˆæœŸå€¤. 
   a0 = 0.d0
   a1 = 1.d0
 
 ! n=2
-  a2   = a1 + a0     ! ‘Q‰»®. 
+  a2   = a1 + a0     ! æ¼¸åŒ–å¼. 
   phi2 = a2 / a1
-  write(6,*) a2, phi2     ! Fibonacci”—ñ‚Ì’l‚ğo—Í. 
+  write(6,*) a2, phi2     ! Fibonacciæ•°åˆ—ã®å€¤ã‚’å‡ºåŠ›. 
 
 ! n=3
   a3   = a2 + a1
