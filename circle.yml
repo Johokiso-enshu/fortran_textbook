@@ -17,6 +17,10 @@ dependencies:
 
 test:
   override:
+    - wget http://mirrors.ctan.org/macros/latex/contrib/float/float.dtx
+    - wget http://mirrors.ctan.org/macros/latex/contrib/fancyvrb/fancyvrb.dtx
+    - wget http://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/comment/comment.sty
+    - wget http://mirrors.ctan.org/macros/latex/contrib/subfig/subfig.dtx
     - chmod +x latex_build.sh
     - ./latex_build.sh textbook.tex
 
