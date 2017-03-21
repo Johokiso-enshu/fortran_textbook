@@ -15,13 +15,13 @@ dependencies:
 
 test:
   override:
-    - cd fortran_textbook && ./latex_build.sh textbook.tex
+    - cd fortran_textbook.git && ./latex_build.sh textbook.tex
 
 deployment:
   release:
     branch: master
     commands:
-      - cd fortran_textbook
+      - cd fortran_textbook.git
       - git checkout -b release
       - git add --all :/
       - git commit -m "[ci skip] build pdf"
