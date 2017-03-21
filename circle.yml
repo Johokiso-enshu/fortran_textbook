@@ -1,0 +1,28 @@
+general:
+  branches:
+
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker pull ogajun/latex
+    - git config --global user.email fujiisoup@gmail.com
+    - git config --global user.name fujiisoup
+
+test:
+  override:
+    - cd fortran_textbook && ./latex_build.sh textbook.tex
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - cd fortran_textbook
+      - git checkout -b release
+      - git add --all :/
+      - git commit -m "[ci skip] build pdf"
+      - git push -f origin release
