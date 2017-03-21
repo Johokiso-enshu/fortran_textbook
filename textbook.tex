@@ -1,0 +1,59 @@
+\documentclass[a4j]{jsbook}
+\usepackage[top=20truemm,bottom=25truemm,left=25truemm,right=25truemm]{geometry}
+\usepackage{amsmath}
+\usepackage{bm}
+%\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyvrb}
+%\usepackage{moreverb}
+\usepackage{listings,jlisting}
+%\usepackage{color}
+\usepackage{subfig}
+\usepackage{comment}
+\usepackage[dvipdfmx]{graphicx,psfrag,color}
+
+\lstset{%
+  language={Fortran},
+  basicstyle={\small},%
+  basicstyle=\ttfamily,
+  identifierstyle={\small},%
+  commentstyle={\small\color[rgb]{0,0.5,0}},%
+  keywordstyle={\small\bfseries\color[rgb]{0,0,1}},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily\color[rgb]{1,0,1}},
+  frame={tbrl},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex,%
+  keepspaces=true
+}
+
+\begin{document}
+\title{情報基礎演習テキスト(プログラムの入力と実行)}
+\author{京都大学 工学部 物理工学科編}
+\date{}
+\maketitle
+
+\mainmatter
+%\include{./3_cmd_gnuplot/cmd_gnuplot}
+\include{./4_fortran1/f90_1}
+\include{./5_fortran2/f90_2}
+\include{./6_fortran3/f90_3}
+%\include{./7_fortran4/f90_4}
+\include{./8_fortran5/f90_5}
+\include{./9_fortran6/f90_6}
+\include{./9_fortran6/f90_7}
+\include{./10_fortrankadai/f90_kadai}
+%\include{./chapters/f90_5}
+%\include{./chapters/f90_6}
+\backmatter
+% bibliography, glossary and index would go here.
+\include{./appendix/appendix}
+
+\end{document}

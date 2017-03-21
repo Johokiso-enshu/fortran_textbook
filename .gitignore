@@ -1,0 +1,20 @@
+*.tar
+*.fls
+*.fdb_latexmk
+*.pdf
+*.out
+*.log
+*.dvi
+*.bbl
+*.aux
+*.blg
+*.synctex.gz
+
+# notebook checkpoint
+notebooks/.ipynb_checkpoints
+
+# pychache
+__pycache__
+
+# pyc
+*.pyc

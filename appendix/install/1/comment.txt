@@ -1,0 +1,12 @@
+https://sourceforge.net/projects/mingw-w64/
+Looking for the latest version? Download mingw-w64-install.exe(170.0kB)
+install
+左下のWindowsマークを右クリック
+コントロールパネル
+システム
+システムの詳細設定
+環境変数
+システム環境変数
+PathにC:\Program Files\mingw-w64\x86_64-6.1.0-posix-seh-rt_v5-rev0\mingw64\binを追加
+gfortran
+gfortran: fatal error: no input files

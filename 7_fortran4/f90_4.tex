@@ -1,0 +1,156 @@
+\chapter{Fortran90の基礎4〜より高度な数値計算に向けて〜}
+
+
+\section{配列}
+この章では、複数のデータを同時に扱うための``配列''について学ぶ。
+配列は一連のデータの集合である。
+例えば3次元空間内のベクトル$\mathrm{x}$は、
+$\mathrm{x}=\{x, y, z\}$という3要素を持つ配列として表すことができる。
+
+以下では、線形代数の諸操作をFortranを用いて実装する。
+次の例は、3要素を持つベクトル$\mathrm{x}$、$\mathrm{y}$の内積を計算するプログラムである。
+
+\lstinputlisting[caption={ベクトルの内積. }, label=dotproduct]{7_fortran4/codes//Subroutine0.f90}
+
+[ソースコードの解説]\\
+配列変数をFortran内で使用するためには、宣言時にその要素数を明示する必要がある。
+
+\begin{Verbatim}[frame=single]
+> double precision x(3)
+\end{Verbatim}
+これは、変数{\ttfamily x}が、倍精度の要素を3つ持つ配列であることを示している。
+
+配列変数に値を代入するためには、その何番目の要素に値を代入するかをカッコ内に示す。
+\begin{Verbatim}[frame=single]
+> x(1) = 1.d0
+\end{Verbatim}
+これは、{\ttfamily x}の1番めの要素に1を代入する操作を示している。
+
+配列変数は、以下のように{\ttfamily do}ループを用いることで効率的に操作することができる。
+\begin{Verbatim}[frame=single]
+> do i = 1, 3
+>   dot = dot + x(i) * y(i)
+\end{Verbatim}
+
+\subsection*{$<$演習課題$>$}
+上記ソースコードを参考にし、以下の2つの行列$\mathrm{X}$および$\mathrm{Y}$の
+積を計算するプログラムを作成せよ。
+\begin{equation}
+X =
+\begin{bmatrix}
+  1.0 & 2.2 & 3.2 \\
+  2.1 & 2.3 & 4.1 \\
+  5.2 & 6.2 & -3.0\\
+\end{bmatrix},\\
+Y =
+\begin{bmatrix}
+  1.1 & 3.2 &  5.2 \\
+  2.4 & 3.3 &  2.1 \\
+  5.3 & 4.2 & -3.0 \\
+\end{bmatrix}
+\end{equation}
+
+\subsection{線形代数操作のサブルーチン化}
+上記プログラムをサブルーチン化したものは以下の通りである。
+
+% TODO ソースコードを加える。
+\lstinputlisting[caption={ベクトルの内積. }, label=subroutine]{7_fortran4/codes//Subroutine.f90}
+
+\subsection*{$<$演習課題$>$}
+2つの行列の内積を計算するサブルーチンを作成し、適当な行列に対して実行せよ。
+
+\subsection*{$<$演習課題$>$}
+2行2列の正方行列$\mathrm{A}$の逆行列を計算するサブルーチンを作成せよ。
+なお、
+$\mathrm{A} =
+\begin{bmatrix}
+  a_{1,1} & a_{1,2} \\
+  a_{2,1} & a_{2,2} \\
+\end{bmatrix}
+$\\
+の逆行列$\mathrm{A}^{-1}$は以下のように表される。
+\begin{equation}
+\mathrm{A}^{-1} = \frac{1}{a_{1,1}a_{2,2}-a_{1,2}a_{2,1}}
+\begin{bmatrix}
+  a_{2,2} & -a_{1,2}\\
+  -a_{2,1} & a_{1,1}
+\end{bmatrix}
+\end{equation}
+
+
+\begin{comment}
+  \section{配列}
+  %\lstinputlisting[caption={ベクトルの内積. }, label=dotproduct]{7_fortran4/codes//Subroutine0.f90}
+
+  \lstinputlisting[caption={行列の和. }, label=matrixsum]{7_fortran4/codes//MatrixSum.f90}
+
+  \subsection*{$<$演習課題$>$}
+  適当な数列を読み込み, その平均値と標準偏差を計算するプログラムを作成せよ.
+
+  \section{サブルーチン}
+  ソースコード\ref{dotproduct}のうち,
+  内積計算のように汎用性のある部分は独立した副プログラム(サブルーチン)として分けて記述するのがよい.
+  以下にサブルーチンDotProductとそれを呼び出すメインプログラムの例を示す.
+  %\lstinputlisting[caption={ベクトルの内積. }, label=subroutine]{7_fortran4/codes//Subroutine.f90}
+  上の例のように数十行程度の短いプログラムの場合にはあえてサブルーチン化する利点は感じられないかもしれないが,
+  同じ処理を繰り返し実施する場合や,
+  数千, 数万行にも及ぶ長いプログラムを作成する場合にはサブルーチン化は必須の技術となる.
+
+
+  \subsection*{$<$演習課題$>$}
+  三次元ベクトル$\bm{a}, \bm{b}$の成分を入力し, それらの外積
+  \begin{equation}
+  \begin{pmatrix}
+  a_1 \\ a_2 \\ a_3
+  \end{pmatrix}
+  \times
+  \begin{pmatrix}
+  b_1 \\ b_2 \\ b_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  a_2b_3-a_3b_2 \\ a_3b_1-a_1b_3 \\ a_1b_2-a_2b_1
+  \end{pmatrix}
+  \end{equation}
+  を計算するプログラムを作成せよ.
+  外積の計算部分はサブルーチン化せよ.
+  %\lstinputlisting[caption={繰り返し処理. }, label=doloop]{7_fortran4/codes//CrossProduct.f90}
+
+  \subsection*{$<$演習課題$>$}
+  三次元ベクトル$\bm{a}, \bm{b}, \bm{c}$の成分を入力し, ベクトル三重積
+  \begin{equation}
+  (\bm{a} \times \bm{b}) \times \bm{c}
+  \end{equation}
+  を計算するプログラムを作成せよ.
+  また, ベクトル三重積の公式,
+  \begin{equation}
+  (\bm{a} \times \bm{b}) \times \bm{c} = (\bm{a} \cdot \bm{c})\bm{b} - (\bm{b} \cdot \bm{c})\bm{a}
+  \end{equation}
+  の右辺を計算し, 等号が成り立っていることを確認せよ.
+  %\lstinputlisting[caption={繰り返し処理. }, label=doloop]{7_fortran4/codes//VectorTripleProduct.f90}
+
+  %\lstinputlisting[caption={繰り返し処理. }, label=doloop]{7_fortran4/codes//Inverse2D.f90}
+  %\lstinputlisting[caption={繰り返し処理. }, label=doloop]{7_fortran4/codes//MatrixVector.f90}
+  %\lstinputlisting[caption={繰り返し処理. }, label=doloop]{7_fortran4/codes//MatrixProduct.f90}
+
+
+  \section*{その他書きたいこと}
+  \begin{enumerate}
+  \item parameter文
+  \item exit文(doループを抜けるとき)
+  \item goto文(多重ループを抜けるときだけ)
+  \item 継続行の書き方
+  \item 無限ループの書き方
+  \item gnuplotで絵が描けるような課題を増やしたい
+  \end{enumerate}
+
+  \chapter{数値計算への応用}
+  \section{漸化式}
+  \begin{enumerate}
+  \item 等差数列
+  \item 階差数列
+  \end{enumerate}
+  など簡単な漸化式のサンプルプログラムと演習問題.
+
+
+\end{comment}
