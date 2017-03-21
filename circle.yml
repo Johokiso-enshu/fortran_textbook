@@ -17,6 +17,7 @@ dependencies:
 
 test:
   override:
+    - chmod +x latex_build.sh
     - ./latex_build.sh textbook.tex
 
 deployment:
