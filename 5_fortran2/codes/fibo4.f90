@@ -1,22 +1,22 @@
 program FibonacciOutput
   implicit none
-  integer:: i     ! ƒ‹[ƒv‚Å—p‚¢‚é®”Œ^•Ï”. 
+  integer:: i     ! ãƒ«ãƒ¼ãƒ—ã§ç”¨ã„ã‚‹æ•´æ•°å‹å¤‰æ•°. 
   double precision:: a(0:50), phi(2:50)
 
-! o—Íæ‚Æ‚µ‚Äoutput.dat‚ğŠJ‚­. 
-! ‚È‚¨, unit=10‚Í‘•’u”Ô†10‚ğw’è‚·‚é‚Æ‚¢‚¤ˆÓ–¡‚Å‚ ‚é. 
+! å‡ºåŠ›å…ˆã¨ã—ã¦output.datã‚’é–‹ã. 
+! ãªãŠ, unit=10ã¯è£…ç½®ç•ªå·10ã‚’æŒ‡å®šã™ã‚‹ã¨ã„ã†æ„å‘³ã§ã‚ã‚‹. 
   open(unit=10, file='output.dat')
 
-! ‰Šú’l. 
+! åˆæœŸå€¤. 
   a(0) = 0.d0
   a(1) = 1.d0
 
   do i = 2, 50
     a(i)   = a(i-1) + a(i-2)
     phi(i) = a(i)   / a(i-1)
-    write(10,*) i, a(i), phi(i)     ! ‘•’u”Ô†10‚É‘‚«‚İ. 
+    write(10,*) i, a(i), phi(i)     ! è£…ç½®ç•ªå·10ã«æ›¸ãè¾¼ã¿. 
   enddo
 
-  close(unit=10)     ! ‘•’u”Ô†10‚ğ•Â‚¶‚é. 
+  close(unit=10)     ! è£…ç½®ç•ªå·10ã‚’é–‰ã˜ã‚‹. 
   stop
 end program FibonacciOutput

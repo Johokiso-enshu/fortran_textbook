@@ -2,7 +2,7 @@ program Main
   implicit none
   double precision:: a(3), b(3), dot
 
-! a, b‚Ì’l. 
+! a, bã®å€¤. 
   a(1) = 1.d0
   a(2) = 2.d0
   a(3) = 3.d0
@@ -11,7 +11,7 @@ program Main
   b(2) = 5.d0
   b(3) = 6.d0
 
-! “àÏŒvZ‚ÌƒTƒuƒ‹[ƒ`ƒ“‚ğŒÄ‚Ño‚µ. 
+! å†…ç©è¨ˆç®—ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‚’å‘¼ã³å‡ºã—. 
   call DotProduct(3, a, b, dot)
 
   write(6,*) dot

@@ -1,8 +1,8 @@
 program FibonacciArray
   implicit none
-  double precision:: a(0:5), phi(2:5) ! a‚Æphi‚ğ”z—ñ‚Æ‚µ‚ÄéŒ¾. 
+  double precision:: a(0:5), phi(2:5) ! aã¨phiã‚’é…åˆ—ã¨ã—ã¦å®£è¨€. 
 
-! ‰Šú’l. 
+! åˆæœŸå€¤. 
   a(0) = 0.d0
   a(1) = 1.d0
 

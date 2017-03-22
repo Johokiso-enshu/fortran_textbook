@@ -1,11 +1,11 @@
 program TrigonometricFunction2
-  implicit none     ! �Öق̌^�錾�̋֎~. 
+  implicit none     ! 暗黙の型宣言の禁止. 
   double precision:: pi, theta
   
-  pi = acos(-1.d0)     ! �~����. 
-  theta = 60.d0     ! �C�ӂ̊p�x[deg]. 
+  pi = acos(-1.d0)     ! 円周率. 
+  theta = 60.d0     ! 任意の角度[deg]. 
   
-  theta = (theta /180.d0)*pi     ! deg����rad�ւ̕ϊ�. 
+  theta = (theta /180.d0)*pi     ! degからradへの変換. 
 
   write(6,*) 'sin(x) = ', sin(theta)
   write(6,*) 'cos(x) = ', cos(theta)
