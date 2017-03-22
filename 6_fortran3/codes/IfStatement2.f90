@@ -3,13 +3,13 @@ program Discriminant
   double precision:: a, b, c, d
 
   write(6,*) 'Input a, b and c'
-  read(5,*) a, b, c     ! ‰æ–Ê‚©‚çŒW”a, b, c‚ð“ü—Í. 
+  read(5,*) a, b, c     ! ç”»é¢ã‹ã‚‰ä¿‚æ•°a, b, cã‚’å…¥åŠ›. 
   
-  d = b**2-4.d0*a*c     ! ”»•ÊŽ®‚ðŒvŽZ. 
+  d = b**2-4.d0*a*c     ! åˆ¤åˆ¥å¼ã‚’è¨ˆç®—. 
 
   write(6,*) 'Equation a x**2 + b x + c = 0 has'
 
-! if•¶‚É‚æ‚éðŒ•ªŠò. 
+! ifæ–‡ã«ã‚ˆã‚‹æ¡ä»¶åˆ†å². 
   if (d > 0.0d0) then
     write(6,*) 'two real roots.'
   else if (d == 0.0d0) then

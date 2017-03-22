@@ -1,0 +1,37 @@
+general:
+  branches:
+    only:
+      - CI_support
+
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker pull ogajun/latex
+    - git config --global user.email fujiisoup@gmail.com
+    - git config --global user.name fujiisoup
+
+test:
+  override:
+    - wget http://mirrors.ctan.org/macros/latex/contrib/float/float.dtx
+    - mv float.dtx float.sty
+    - wget http://mirrors.ctan.org/macros/latex/contrib/fancyvrb/fancyvrb.dtx
+    - mv fancyvrb.dtx fancyvrb.sty
+    - wget http://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/comment/comment.sty
+    - wget http://mirrors.ctan.org/macros/latex/contrib/subfig/subfig.dtx
+    - mv subfig.dtx subfig.sty
+    - chmod +x latex_build.sh
+    - ./latex_build.sh textbook.tex
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - git checkout -b release
+      - git add --all :/
+      - git commit -m "[ci skip] build pdf"
+      - git push -f origin release
